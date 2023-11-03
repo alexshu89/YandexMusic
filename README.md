@@ -45,7 +45,7 @@
 3.3) Вывод только каверов, по степени схожести к запрашиваемому треку или к оригиналу  
 3.4) Вывод самых близких песен по тексту, в том числе и не каверы  
 
-https://github.com/dearsasha/YandexMusic/blob/main/img/1.png
+
 ![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/1.png)
 
 Работа online с большим количеством данных накладывает на алгоритм серьезные рамки времени работы и поиска. Для пользователя всё должно быть практически мгновенно. Поэтому необходимо подобрать подход с самым хорошим соотношением точности ко времени выполнения.  
@@ -56,7 +56,7 @@ https://github.com/dearsasha/YandexMusic/blob/main/img/1.png
 ### Файл **covers.json**:  
 1) соотношение треков оригинал/кавер - 6%/94%  
 
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%202.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/2.png)  
 
 2) Имеется большое количество пропусков в колонке **original_track_id** (66776 из 71597). Это сильно ограничивает количество данных и усложняет работу с моделями.
 
@@ -65,24 +65,24 @@ https://github.com/dearsasha/YandexMusic/blob/main/img/1.png
 2) Если посмотреть на длину треков, то видно, что есть сильно короткие и невероятно длинные треки. Это может быть связано как со спецификой треков, так и с возможными ошибками в данных. Медианная длина текста находится в 1165 символах  
 
 
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%203.png) 
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/3.png) 
 
 ### Файл **meta.json**:  
 1) Пропуски пресутствуют в языках и **isrc**   
 2) Топ 10 жанров :'FOLK', 'LATINFOLK', 'POP', 'ALLROCK', 'ROCK', 'ALTERNATIVE','ELECTRONICS', 'SOUNDTRACK', 'RAP', 'DANCE'  
 
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%204.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/4.png)  
 
 3) Наиболее популярные языки: Английский, Испанский, Русский  
 
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%205.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/5.png)  
 
 4) Время самое ранние упоминания из столбца **ddtm** 08.2009 последнее 2023-10, бум упоминаний треков приходится на октябрь-ноябрь 2021
 5) Большая часть данных, судя по всему, не имеет каверов, треки с первым и единственным упоминанием доминируют в данных, если не брать во внимание случаи одинаковых названий
 6) Для столбца **isrc** извлекли признаки, проверили на корректность, существуют трек для которых один **isrc** для разных **track_id**, возможно из-за того что один трек в разные альбомы
 7) Дата из **isrc** не всегда совпадает с датой в **ddtm**, есть аномалии с данными больше чем 23 год и их нельзя найти в базе
 
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%206.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/6.png)  
 
 
 ## Подготовка признаков
@@ -112,7 +112,7 @@ https://github.com/dearsasha/YandexMusic/blob/main/img/1.png
   
 По интересующих нас признаках рассчитали матрицу коореляции:
 
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%207.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/7.png)  
 
 Видно, что есть сильная связь между целевой переменной и признаками: ид. эмитента (сокращенной и поолный), код страны, язык, год выпуска).
 Присутствует мультиколлинеарность между признаками, сгенерированными из isrc, языком и годом из dttm.
@@ -120,8 +120,8 @@ https://github.com/dearsasha/YandexMusic/blob/main/img/1.png
 
 Были определены наиболее важные признаки для модели с использованием атрибута feature_importances_ и библиотеки shap:
 
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%209.png)  
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%2010.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/8.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/9.png)  
 
 По полученным результатам была обучена финальная модель:
 
