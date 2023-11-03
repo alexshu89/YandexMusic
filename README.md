@@ -47,7 +47,6 @@
 
 https://github.com/dearsasha/YandexMusic/blob/main/img/1.png
 ![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/1.png)
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%201.png)
 
 Работа online с большим количеством данных накладывает на алгоритм серьезные рамки времени работы и поиска. Для пользователя всё должно быть практически мгновенно. Поэтому необходимо подобрать подход с самым хорошим соотношением точности ко времени выполнения.  
 
