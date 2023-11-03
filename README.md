@@ -124,6 +124,7 @@
 ![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/10.png)  
 
 По полученным результатам была обучена финальная модель:
+
 ![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/9.png)  
 
 ### Вывод  
