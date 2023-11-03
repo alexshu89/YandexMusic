@@ -121,11 +121,10 @@
 Были определены наиболее важные признаки для модели с использованием атрибута feature_importances_ и библиотеки shap:
 
 ![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/8.png)  
-![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/9.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/10.png)  
 
 По полученным результатам была обучена финальная модель:
-
-![alt text](https://github.com/raphael12/YandexMusic/blob/main/images/%D0%A0%D0%B8%D1%81%208.png)  
+![alt text](https://github.com/dearsasha/YandexMusic/blob/main/img/9.png)  
 
 ### Вывод  
 Для музыкальных треков из имеющихся данных были созданы 137 новых признаков (129 признаков-жанров), обучена модель на 85% данных с известными значениями столбца 'track_remake_type' и протестирована на оставшихся. Для данной модели не использовалось содержание заголовков и текста песен, а лишь их размер, а также извлекалась возможная полезная информация из заголовков (год и упоминание "cover").
